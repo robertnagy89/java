@@ -74,4 +74,17 @@ public class Auto {
     public void setTulajdonosNeve(String tulajdonosNeve) {
         this.tulajdonosNeve = tulajdonosNeve;
     }
+
+    @Override
+    public String toString() {
+        return "Auto{" +
+                "gyarto='" + gyarto + '\'' +
+                ", modell='" + modell + '\'' +
+                ", gyartasiEv=" + gyartasiEv +
+                ", kerekekSzama=" + kerekekSzama +
+                ", ulesekSzama=" + ulesekSzama +
+                ", alvazSzam='" + alvazSzam + '\'' +
+                ", tulajdonosNeve='" + tulajdonosNeve + '\'' +
+                '}';
+    }
 }
