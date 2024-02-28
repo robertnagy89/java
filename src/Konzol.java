@@ -24,7 +24,13 @@ public class Konzol {
                 new Kamera("Canon Pro", 110000, 90)
         };
         for (int i = 0; i < termekek.length; i++) {
-            System.out.println(termekek[i]);
+            if(termekek[i] instanceof  Laptop){
+                System.out.println(termekek[i]+ " Laptop");
+            }
+            if(termekek[i] instanceof  Kamera){
+                System.out.println(termekek[i]+ " Kamera");
+            }
+
         }
 
     }
