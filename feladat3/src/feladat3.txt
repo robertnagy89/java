@@ -1,0 +1,16 @@
+3.1 állat-rágcsáló, ló-hüllő
+3.2 Roulette
+3.3 static kulcsszó,
+    final kulcsszó,
+    private public kulcsszavak
+3.4 overloading: egy metódust különböző változókkal ellátni
+    overriding: egy metódust felülirni gyerek osztálynál.
+    osztály: adatok és metódusok gyűjteménye
+    példány: az osztályból létrehozott egyed.
+    private: csak az osztályon belül férek hozzá
+    protected: az osztályon, annak gyerekosztályain, egyazon csomagon belül férek hozzá
+
+4.
+    Termek nem származik semmiből de mégis akarunk super-jét meghivni constructorba
+    id-t finalnak végleges értéknek 0-t adtunk meg mégis felül akarjuk irni konstruktorban
+    main metódusban private fieldeket próbálunk elérni. nincs getterünk
