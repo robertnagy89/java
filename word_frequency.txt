@@ -1,0 +1,5 @@
+almafa 1
+alma 3
+korte 2
+fa 2
+piros 1
