@@ -1,0 +1,6 @@
+student_id, name, math, history, english
+1, Alice, 85, 92, 78
+2, Bob, 76, 88, 92
+3, Carol, 95, 89, 78
+4, David, 68, 75, 80
+5, Eve, 90, 85, 92

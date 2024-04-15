@@ -4,8 +4,15 @@ import java.util.Scanner;
 
 public class FileReadingExample {
     public static void main(String[] args) {
-        Termek[] termekek = new Termek[]{new Termek("Macbook", 5000), new Termek("Samsung TV", 2000), new Termek("Macbook pro", 7000), new Termek("Samsung Galaxy A32", 4000)};
-        writeTermekToCSV(termekek);
+        // recFiles(new File("C:\\Users\\RN89\\IdeaProjects\\untitled"));
+        Subject[] subjects = new Subject[]{
+                new Subject("matek",50),
+                new Subject("tesi",90),
+                new Subject("technika",80)
+        };
+        Student student = new Student(1,"Peti", subjects);
+
+        readGrades();
     }
 
     public static void feladat_1() {
@@ -71,5 +78,35 @@ public class FileReadingExample {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void recFiles(File file){
+
+        for(File f: file.listFiles()){
+            if(f.isDirectory()){
+                System.out.println(f);
+                recFiles(f);
+            }
+        }
+    }
+    public static void readGrades()  {
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader(new File("C:\\Users\\RN89\\IdeaProjects\\untitled\\fileread\\src\\grades.txt")));
+            reader.readLine();
+            for(int i=0; i<5;i++){
+                String line = reader.readLine();
+                String[] values = line.split(",");
+                Subject[] subjects = new Subject[]{
+                        new Subject("math", Integer.parseInt(values[2].trim())),
+                        new Subject("history", Integer.parseInt(values[3].trim())),
+                        new Subject("english",Integer.parseInt(values[4].trim()))
+                };
+                Student student = new Student(Integer.parseInt(values[0].trim()),values[1], subjects);
+                System.out.println(student);
+            }
+        } catch (IOException e) {
+            System.out.println("IO Exception");;
+        }
+
     }
 }
