@@ -5,7 +5,7 @@ import java.util.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        feladat_3();
+        feladat_5();
     }
 
     public static void feladat_1() {
@@ -80,5 +80,66 @@ public class Main {
 
         System.out.println("LeastFrequentNumber: "+ lottoStatistic.leastFrequentNumber());
         lottoStatistic.highestPayout();
+    }
+    public static void feladat_4(){
+
+        try {
+            Scanner scanner = new Scanner(new File("W:\\Webler\\Materials\\Git\\junior_hetfo\\Elso\\real_estate.csv"));
+
+            scanner.nextLine();
+
+            List<RealEstate> realEstates = new ArrayList<>();
+
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] values = line.split(",");
+
+                double area = Double.parseDouble(values[0]);
+                int numberOfRooms= Integer.parseInt(values[1]);
+
+                if(values[2].equals("Flat")){
+                    realEstates.add(new Flat(area,numberOfRooms,Integer.parseInt(values[4]),values[3].equals("1")));
+                }else{
+                    realEstates.add(new House(area,numberOfRooms, values[5].equals("1"), Double.parseDouble(values[6])));
+                }
+
+
+            }
+            System.out.println();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public static void feladat_5(){
+        List<CarEmissionInfo> carEmissionInfo = new ArrayList<>();
+        try {
+            Scanner scanner = new Scanner(new File("C:\\Users\\RN89\\IdeaProjects\\untitled\\interface\\src\\emission.csv"));
+            scanner.nextLine();
+
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] values = line.split(",");
+
+                String manufacturer = values[0];
+                String model = values[1];
+                double engineSize = Double.parseDouble(values[3]);
+                int co2Emission = Integer.parseInt(values[11]);
+                FuelType fuelType = FuelType.parseFuelType(values[6]);
+                carEmissionInfo.add(new CarEmissionInfo(manufacturer, model, engineSize, fuelType, co2Emission));
+            }
+            CarEmissionStatistics stats = new CarEmissionStatistics(carEmissionInfo);
+            System.out.println("MinCo2Emission: " + stats.getMinCo2Emission());
+            System.out.println("MaxCo2Emission: " + stats.getMaxCo2Emission());
+            System.out.println("Unique Engine Size Count: " + stats.getUniqueEngineSizeCount());
+            System.out.println("Unique Manufacturers: " + stats.getAllManufacturer());
+            System.out.println("CarEmissionInfo by engine size: " +stats.getAllEmissionInfoByEngineSize(1.8));
+           // System.out.println("All emission info order by co2 emission desc: " + stats.getAllEmissionInfoOrderByCO2EmissionDesc());
+            System.out.println("Get emission info map by Fuel Type: " +stats.getEmissionInfoGroupByFuelType(FuelType.PREMIUM_GASOLINE));
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,0 +1,11 @@
+area,number_of_rooms,type,balcony,level,pool,garden_area
+60,2,Flat,1,2,,
+52,3,Flat,0,3,,
+73,4,Flat,1,5,,
+42,1,Flat,0,4,,
+80,5,Flat,1,6,,
+60,2,House,,,0,30
+52,3,House,,,0,54
+73,4,House,,,1,23
+42,1,House,,,0,12
+80,5,House,,,1,130
